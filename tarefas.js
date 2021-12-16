@@ -34,3 +34,30 @@ containerEl.innerHTML = '';
 // chama a função que insere na página para cada tarefa
 // do vetor 'tarefas'
 tarefas.forEach(insereTarefaNaPagina);
+
+
+
+
+// Exercício 2: incluir uma nova tarefa
+// -----------
+//
+let botaoIncluirEl = document.querySelector('#incluir-nova-tarefa');
+let nomeInputEl = document.querySelector('#nova-tarefa-nome');
+botaoIncluirEl.addEventListener('click', function() {
+  // cria um novo objeto 'tarefa'
+  let novaTarefa = {
+    nome: nomeInputEl.value,
+    categoria: 'outros',
+    marcado: false
+  };
+
+  // coloca-o no vetor 'tarefas'
+  tarefas.push(novaTarefa);
+  // cria o <li> referente a essa tarefa e o
+  // insere na página
+  insereTarefaNaPagina(novaTarefa);
+
+  // limpar o input e devolver o foco pra ele
+  nomeInputEl.value = '';
+  nomeInputEl.focus();
+});
