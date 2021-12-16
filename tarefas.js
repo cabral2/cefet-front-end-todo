@@ -26,7 +26,9 @@ function insereTarefaNaPagina(tarefa) {
     tarefaLiEl.classList.add('marcado');
   }
   // 3. insere na árvore
-  containerEl.appendChild(tarefaLiEl);
+  // Desafio 1: novas tarefas no início
+  let primeiraTarefaEl = containerEl.querySelector(':first-child');
+  containerEl.insertBefore(tarefaLiEl, primeiraTarefaEl);
 }
 
 // limpa a <ul> do que quer que esteja lá
