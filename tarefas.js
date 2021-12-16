@@ -45,7 +45,11 @@ tarefas.forEach(insereTarefaNaPagina);
 //
 let botaoIncluirEl = document.querySelector('#incluir-nova-tarefa');
 let nomeInputEl = document.querySelector('#nova-tarefa-nome');
-botaoIncluirEl.addEventListener('click', function() {
+
+// Desafio 2:
+// trouxemos a função para fora e demos um nome para ela
+// para podermos chamá-la em mais de 1 lugar
+function novaTarefa() {
   // cria um novo objeto 'tarefa'
   let novaTarefa = {
     nome: nomeInputEl.value,
@@ -62,4 +66,14 @@ botaoIncluirEl.addEventListener('click', function() {
   // limpar o input e devolver o foco pra ele
   nomeInputEl.value = '';
   nomeInputEl.focus();
+}
+
+botaoIncluirEl.addEventListener('click', novaTarefa);
+
+// Desafio 2: incluir nova tarefa ao pressionar 'Enter'
+// no campo de nome da tarefa
+nomeInputEl.addEventListener('keyup', function (e) {
+  if (e.key === 'Enter') {
+    novaTarefa();
+  }
 });
